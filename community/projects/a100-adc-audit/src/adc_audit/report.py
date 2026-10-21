@@ -18,14 +18,28 @@ def _now_iso() -> str:
     return _dt.datetime.now().astimezone().isoformat(timespec="seconds")
 
 
+def _display_path(p: str | Path, repo_root: Path | None) -> str:
+    """仓内路径显示为仓库相对路径，仓外保持绝对路径（报告可复现、无本机绝对路径）。"""
+    try:
+        rp = Path(p).resolve()
+        if repo_root is not None:
+            return str(rp.relative_to(Path(repo_root).resolve()))
+    except ValueError:
+        pass
+    return str(p)
+
+
 def build_json(report: AuditReport) -> dict:
     return {
         "tool": "adc_audit",
         "version": __version__,
         "generated_at": _now_iso(),
-        "data_dirs": report.data_dirs,
+        "data_dirs": [_display_path(d, report.repo_root) for d in report.data_dirs],
         "num_rx": report.num_rx,
-        "configs": [c.as_dict() for c in report.configs],
+        "configs": [
+            {**c.as_dict(), "path": _display_path(c.path, report.repo_root)}
+            for c in report.configs
+        ],
         "rules": {rid: {"title": s.title, "description": s.description, "level": s.level}
                   for rid, s in RULES.items()},
         "summary": {
@@ -76,7 +90,7 @@ def build_markdown(report: AuditReport, figure_links: list[tuple[str, str]] | No
     a(f"- 工具：`adc_audit` v{__version__}（离线分析，未做硬件实测）")
     a(f"- 生成时间：{_now_iso()}")
     for d in report.data_dirs:
-        a(f"- 数据目录：`{d}`")
+        a(f"- 数据目录：`{_display_path(d, report.repo_root)}`")
     for c in report.configs:
         a(
             f"- 配置：`{c.path.name}`（init{c.profile}: {c.start_freq_ghz} GHz / "

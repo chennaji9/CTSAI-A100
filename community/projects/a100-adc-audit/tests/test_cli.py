@@ -65,3 +65,15 @@ def test_cli_missing_data_dir(tmp_path, std_config):
     rc = main(["--data-dir", str(tmp_path / "nodir"),
                "--config", str(std_config.path), "--quiet"])
     assert rc == 2
+
+
+def test_cli_data_dir_without_adc_files(tmp_path, std_config, capsys):
+    # 目录存在但没有匹配的 ADC 文件：必须显式报错（退出码 2），
+    # 不能"审计 0 个文件"后返回 0 造成未执行审计却成功的假象
+    d = tmp_path / "data"
+    d.mkdir()
+    (d / "notes.txt").write_text("not adc data", encoding="utf-8")
+    rc = main(["--data-dir", str(d), "--config", str(std_config.path), "--quiet"])
+    assert rc == 2
+    err = capsys.readouterr().err
+    assert "未找到任何 ADC 文件" in err

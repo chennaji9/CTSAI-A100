@@ -314,3 +314,59 @@ def test_constant_chirp_long_run(tmp_path, std_config):
     assert sf.status == "warn"
     assert fa.quality.longest_run == std_config.rng_nfft
     assert fa.quality.longest_run_value == 100
+
+
+# ---------------------------------------------------------------------------
+# FMT-01：唯一配置与文件名 f0/f1 标记的关系（review 回归）
+# ---------------------------------------------------------------------------
+
+
+def test_single_config_filename_mismatch_fails(tmp_path, std_config):
+    # 文件名明确标记 f0，但只提供了 init1 配置：明确不匹配必须判失败，
+    # 且不再用错误的配置审计长度/信号
+    d = tmp_path / "data"
+    d.mkdir()
+    write_adc(d / "adc_test_20260512141857_f0_0_14_19_00_000.txt",
+              make_words(STD_EXPECTED, seed=70))
+    report = audit([d], [std_config])
+    fa = report.files[0]
+    ff = fa.finding("FMT-01")
+    assert ff.status == "fail"
+    assert "不匹配" in ff.message
+    assert fa.config is None
+    assert fa.finding("LEN-01").status == "fail"
+    assert fa.status == "fail"
+    assert report.exit_code() == 1
+
+
+def test_single_config_no_marker_still_warns(tmp_path, std_config):
+    # 文件名无任何 f0/f1 标记时维持警告（不能确定 profile，不算明确不匹配）
+    d = tmp_path / "data"
+    d.mkdir()
+    write_adc(d / "adc_capture_20260512_142200.txt",
+              make_words(STD_EXPECTED, seed=71))
+    report = audit([d], [std_config])
+    fa = report.files[0]
+    ff = fa.finding("FMT-01")
+    assert ff.status == "warn"
+    assert "未含" in ff.message
+    assert fa.config is not None
+    assert fa.finding("LEN-01").status == "pass"
+
+
+def test_same_dir_name_different_paths_not_merged(tmp_path, std_config):
+    # 两条不同采集路径的末级目录同名（都叫 data）：不得合并为同一批次；
+    # 相同内容应报跨批次重复（BAT-01），而不是被同名目录吞掉
+    d1 = make_channel_dir(tmp_path / "a" / "data")
+    d2 = tmp_path / "b" / "data"
+    d2.mkdir(parents=True)
+    write_adc(d2 / "adc_test_20260512141857_f1_0_14_19_00_000.txt",
+              make_words(STD_EXPECTED, seed=100))  # 与 a/data Rx0 同内容
+    report = audit([d1, d2], [std_config])
+    labels = {fa.group_label for fa in report.files}
+    assert len(labels) == 2  # 完整路径区分两条采集路径
+    bat01 = [f for f in report.batch_findings if f.rule_id == "BAT-01"]
+    assert len(bat01) == 1
+    assert len(bat01[0].details["groups"]) == 2
+    assert "重复批次" in bat01[0].message
+    assert report.exit_code() == 0  # 跨批次重复仍是警告

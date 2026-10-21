@@ -193,6 +193,7 @@ class AuditReport:
     data_dirs: list[str] = field(default_factory=list)
     configs: list[SensorConfig] = field(default_factory=list)
     num_rx: int = NUM_RX_DEFAULT
+    repo_root: Path | None = None  # 报告输出用于把绝对路径显示为仓库相对路径
 
     @property
     def n_fail(self) -> int:
@@ -292,10 +293,14 @@ def audit_file(
             fmt_status = "warn"
             fmt_notes.append("文件名未含 f0/f1/Pf0/Pf1/近波/远波 标记，使用唯一提供的配置")
         elif config.profile != filename_profile:
-            fmt_status = "warn"
+            # 文件名携带明确的 f0/f1 标记但与唯一配置不符：判为失败，
+            # 且不再用错误的配置继续审计长度/信号（避免错误数据被判为可用）。
+            fmt_status = "fail"
             fmt_notes.append(
-                f"文件名 profile=f{filename_profile} 与所给配置 init{config.profile} 不一致，按配置继续"
+                f"文件名 profile=f{filename_profile} 与所给配置 init{config.profile} 明确不匹配，"
+                f"判为失败且不使用该配置审计该文件"
             )
+            config = None
     else:
         fmt_status = "fail"
         fmt_notes.append(
@@ -307,7 +312,12 @@ def audit_file(
         loaded=loaded,
         repo_rel_path=rel,
         short_label=_short_label(path, filename_profile, filename_rx),
-        group_label=f"{path.parent.name}/f{filename_profile if filename_profile is not None else '?'}",
+        # 批次标识用父目录的完整显示路径（仓内为仓库相对路径），
+        # 不同采集路径即使末级目录同名也不会被合并为同一批次
+        group_label=(
+            f"{_display_path(path.parent, repo_root)}"
+            f"/f{filename_profile if filename_profile is not None else '?'}"
+        ),
         filename_profile=filename_profile,
         filename_rx=filename_rx,
         config=config,
@@ -658,9 +668,15 @@ def audit(
         data_dirs=[str(Path(d).resolve()) for d in data_dirs],
         configs=configs,
         num_rx=num_rx,
+        repo_root=repo_root,
     )
     for d in data_dirs:
-        for p in iter_adc_files(d):
+        paths = iter_adc_files(d)
+        if not paths:
+            # 目录存在但没有任何 ADC 文件属于输入错误，必须显式报错，
+            # 不能"审计 0 个文件"后返回成功
+            raise FileNotFoundError(f"数据目录中未找到任何 ADC 文件 (adc*.txt): {d}")
+        for p in paths:
             loaded = load_adc_file(p)
             report.files.append(audit_file(loaded, by_profile, repo_root))
     report.batch_findings = audit_batches(report.files, num_rx)

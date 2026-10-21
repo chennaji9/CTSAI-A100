@@ -9,7 +9,8 @@
         [--figures-dir DIR] [--num-rx 4] [--strict] [--quiet]
 
 退出码：0 = 无失败（警告不改变退出码）；1 = 存在失败
-（`--strict` 时存在警告也返回 1）。
+（`--strict` 时存在警告也返回 1）；2 = 输入/配置错误
+（配置解析失败、目录不存在、目录中没有任何 ADC 文件）。
 """
 
 from __future__ import annotations

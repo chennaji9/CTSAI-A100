@@ -17,7 +17,8 @@
 - 在不依赖 MATLAB 的前提下，回答"这批 ADC 数据能不能安全地喂给信号处理流水线"；
 - 对仓内两种 ADC 文本布局给出统一的显式审计：格式、长度、数值、信号质量、批次一致性；
 - 每条规则有 id、严重级别、通过/警告/失败三态；退出码可被 CI 直接消费
-  （0=无失败，1=存在失败；`--strict` 下警告也返回 1）；
+  （0=无失败，1=存在失败；`--strict` 下警告也返回 1；输入/配置错误——如目录中
+  没有任何 ADC 文件——返回 2，不会"审计 0 个文件"后假报成功）；
 - 提供故障注入单元测试，保证工具本身对截断、坏 token、重复通道等故障分级正确、
   对完好文件不误报。
 
@@ -89,8 +90,8 @@
 在本目录（`community/projects/a100-adc-audit/`）下：
 
 ```bash
-# 单测（含故障注入回归），预期 38 passed
-/home/cnj/openSource/.venv-a100/bin/python -m pytest tests/ -q
+# 单测（含故障注入回归）
+python -m pytest tests/ -q
 
 # 对仓内两组真实数据（16 文件）审计，产出 results/ 与 figures/
 PYTHONPATH=src python -m adc_audit \
@@ -103,15 +104,17 @@ PYTHONPATH=src python -m adc_audit \
   --figures-dir figures
 ```
 
-`--data-dir` / `--config` 均可重复；配置按文件名 f0/f1 标记自动匹配（只给一份配置时
-作为回退并对 profile 不符发警告）。预期输出（节选）：
+`--data-dir` / `--config` 均可重复；配置按文件名 f0/f1 标记自动匹配。只给一份配置时：
+文件名不含任何 profile 标记则回退使用该配置并警告；文件名明确标记的 f0/f1 与配置
+不符则直接判失败，且不再用错误的配置继续审计（避免错误数据被判为可用）。
+预期输出（节选）：
 
 ```text
 adc_audit: 审计 16 个文件，8 条批次结论
   [!] A·near·Rx0  ADC数据采集/示例adc数据和结果/adc_近波_..._f1_0_....txt  FMT-01:✓ VAL-01:✓ LEN-01:! SIG-01:✓
   ...
-  [!] BAT-01 重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx0 @ 示例adc数据和结果/f1; B·near·Rx0 @ data/f1
-  [✓] BAT-02 批次 data/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
+  [!] BAT-01 重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx0 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx0 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+  [✓] BAT-02 批次 ADC数据采集/示例adc数据和结果/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
 规则统计  FMT-01:16✓/0!/0✗  LEN-01:0✓/16!/0✗  VAL-01:16✓/0!/0✗  SIG-01:16✓/0!/0✗  BAT-01:0✓/4!/0✗  BAT-02:4✓/0!/0✗
 总体: 失败 0，警告 20
 退出码 0（0=无失败，1=存在失败）

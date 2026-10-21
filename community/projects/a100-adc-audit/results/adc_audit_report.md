@@ -1,9 +1,9 @@
 # CTSAI-A100 ADC 批次完整性与质量审计报告
 
 - 工具：`adc_audit` v1.0.0（离线分析，未做硬件实测）
-- 生成时间：2026-09-29T13:00:17+08:00
-- 数据目录：`/home/cnj/openSource/wt-adc-audit/ADC数据采集/示例adc数据和结果`
-- 数据目录：`/home/cnj/openSource/wt-adc-audit/ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data`
+- 生成时间：2026-10-21T17:29:44+08:00
+- 数据目录：`ADC数据采集/示例adc数据和结果`
+- 数据目录：`ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data`
 - 配置：`sensor_config_init0.hxx`（init0: 76.3 GHz / 300.0 MHz / 256 chirp / rng_nfft 1024 / vel_nfft 256 / 期望 131072 字/通道）
 - 配置：`sensor_config_init1.hxx`（init1: 76.119 GHz / 750.0 MHz / 128 chirp / rng_nfft 2048 / vel_nfft 128 / 期望 131072 字/通道）
 
@@ -46,21 +46,21 @@
 
 ## 3. 批次级结论
 
-- **BAT-01** [! 警告] 重复批次：sha256=05f3a38d9297… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx2 @ 示例adc数据和结果/f1; B·near·Rx2 @ data/f1
-- **BAT-01** [! 警告] 重复批次：sha256=134e89fb95ae… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx3 @ 示例adc数据和结果/f1; B·near·Rx3 @ data/f1
-- **BAT-01** [! 警告] 重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx0 @ 示例adc数据和结果/f1; B·near·Rx0 @ data/f1
-- **BAT-01** [! 警告] 重复批次：sha256=4fb120427111… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx1 @ 示例adc数据和结果/f1; B·near·Rx1 @ data/f1
-- **BAT-02** [✓ 通过] 批次 data/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
-- **BAT-02** [✓ 通过] 批次 data/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
-- **BAT-02** [✓ 通过] 批次 示例adc数据和结果/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
-- **BAT-02** [✓ 通过] 批次 示例adc数据和结果/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
+- **BAT-01** [! 警告] 重复批次：sha256=05f3a38d9297… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx2 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx2 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+- **BAT-01** [! 警告] 重复批次：sha256=134e89fb95ae… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx3 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx3 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+- **BAT-01** [! 警告] 重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx0 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx0 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+- **BAT-01** [! 警告] 重复批次：sha256=4fb120427111… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx1 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx1 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+- **BAT-02** [✓ 通过] 批次 ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
+- **BAT-02** [✓ 通过] 批次 ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
+- **BAT-02** [✓ 通过] 批次 ADC数据采集/示例adc数据和结果/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
+- **BAT-02** [✓ 通过] 批次 ADC数据采集/示例adc数据和结果/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同
 
 ## 4. 关键发现（全部警告/失败，无静默修补）
 
-- **BAT-01** [! 警告] 重复批次：sha256=05f3a38d9297… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx2 @ 示例adc数据和结果/f1; B·near·Rx2 @ data/f1
-- **BAT-01** [! 警告] 重复批次：sha256=134e89fb95ae… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx3 @ 示例adc数据和结果/f1; B·near·Rx3 @ data/f1
-- **BAT-01** [! 警告] 重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx0 @ 示例adc数据和结果/f1; B·near·Rx0 @ data/f1
-- **BAT-01** [! 警告] 重复批次：sha256=4fb120427111… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx1 @ 示例adc数据和结果/f1; B·near·Rx1 @ data/f1
+- **BAT-01** [! 警告] 重复批次：sha256=05f3a38d9297… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx2 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx2 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+- **BAT-01** [! 警告] 重复批次：sha256=134e89fb95ae… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx3 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx3 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+- **BAT-01** [! 警告] 重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx0 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx0 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
+- **BAT-01** [! 警告] 重复批次：sha256=4fb120427111… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx1 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx1 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1
 - `A·near·Rx0` ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_0_14_19_05_965.txt
   - **LEN-01** [! 警告] 载荷 131073 字 > 期望 131072，多余 1 字。尾部多余 1 个零值（载荷索引 131072..131072，值全为 0）→ 截断修复：丢弃这些尾零后继续分析
 - `A·near·Rx1` ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_1_14_19_14_570.txt

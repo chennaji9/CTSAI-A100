@@ -1,16 +1,16 @@
 {
   "tool": "adc_audit",
   "version": "1.0.0",
-  "generated_at": "2026-09-29T13:00:17+08:00",
+  "generated_at": "2026-10-21T17:29:44+08:00",
   "data_dirs": [
-    "/home/cnj/openSource/wt-adc-audit/ADC数据采集/示例adc数据和结果",
-    "/home/cnj/openSource/wt-adc-audit/ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data"
+    "ADC数据采集/示例adc数据和结果",
+    "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data"
   ],
   "num_rx": 4,
   "configs": [
     {
       "profile": 0,
-      "path": "/home/cnj/openSource/wt-adc-audit/ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/cfg/CTASI-A100配置/sensor_config_init0.hxx",
+      "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/cfg/CTASI-A100配置/sensor_config_init0.hxx",
       "start_freq_ghz": 76.3,
       "bandwidth_mhz": 300.0,
       "chirp_rampup_us": 43.0,
@@ -26,7 +26,7 @@
     },
     {
       "profile": 1,
-      "path": "/home/cnj/openSource/wt-adc-audit/ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/cfg/CTASI-A100配置/sensor_config_init1.hxx",
+      "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/cfg/CTASI-A100配置/sensor_config_init1.hxx",
       "start_freq_ghz": 76.119,
       "bandwidth_mhz": 750.0,
       "chirp_rampup_us": 104.65,
@@ -119,7 +119,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_0_14_19_05_965.txt",
       "label": "A·near·Rx0",
-      "group": "示例adc数据和结果/f1",
+      "group": "ADC数据采集/示例adc数据和结果/f1",
       "sha256": "36db22359f0bc902022ec26a07a1a6cb2ed941f66f75729c42d01bf56c4d273c",
       "size_bytes": 1268333,
       "format": "headerless",
@@ -196,7 +196,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_1_14_19_14_570.txt",
       "label": "A·near·Rx1",
-      "group": "示例adc数据和结果/f1",
+      "group": "ADC数据采集/示例adc数据和结果/f1",
       "sha256": "4fb120427111cddaf220433bf85491a700633ca28e4b41d5ea20ee01707960ab",
       "size_bytes": 1294496,
       "format": "headerless",
@@ -273,7 +273,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_2_14_19_23_170.txt",
       "label": "A·near·Rx2",
-      "group": "示例adc数据和结果/f1",
+      "group": "ADC数据采集/示例adc数据和结果/f1",
       "sha256": "05f3a38d9297f35c7972d84d8f9e300b269457b3e6cd00e5f51d3172ac6c306e",
       "size_bytes": 1294254,
       "format": "headerless",
@@ -350,7 +350,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_3_14_19_31_788.txt",
       "label": "A·near·Rx3",
-      "group": "示例adc数据和结果/f1",
+      "group": "ADC数据采集/示例adc数据和结果/f1",
       "sha256": "134e89fb95ae8e2d7955163e888040ecf59fc3895c21841debc07fb51127e7bb",
       "size_bytes": 1294726,
       "format": "headerless",
@@ -427,7 +427,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_远波_20260512135827_f0_0_13_58_36_748.txt",
       "label": "A·far·Rx0",
-      "group": "示例adc数据和结果/f0",
+      "group": "ADC数据采集/示例adc数据和结果/f0",
       "sha256": "bba39d6f30c7c1530e85a2bf7b2509278fbcf03c4a025cb5978a3efdefdfb3a7",
       "size_bytes": 1255826,
       "format": "headerless",
@@ -504,7 +504,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_远波_20260512135827_f0_1_13_58_45_367.txt",
       "label": "A·far·Rx1",
-      "group": "示例adc数据和结果/f0",
+      "group": "ADC数据采集/示例adc数据和结果/f0",
       "sha256": "33d6b42ec6458934f0a2d66d547678e6604901b7fb26c7bfee44aba3a0d7448d",
       "size_bytes": 1286718,
       "format": "headerless",
@@ -581,7 +581,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_远波_20260512135827_f0_2_13_58_53_977.txt",
       "label": "A·far·Rx2",
-      "group": "示例adc数据和结果/f0",
+      "group": "ADC数据采集/示例adc数据和结果/f0",
       "sha256": "c58910a1705586758362c348f6cd347d44ea8ee7d54fe2771193bc23671c3a70",
       "size_bytes": 1283163,
       "format": "headerless",
@@ -658,7 +658,7 @@
     {
       "path": "ADC数据采集/示例adc数据和结果/adc_远波_20260512135827_f0_3_13_59_02_596.txt",
       "label": "A·far·Rx3",
-      "group": "示例adc数据和结果/f0",
+      "group": "ADC数据采集/示例adc数据和结果/f0",
       "sha256": "80ebc8a7f1735612b1f91292fefd083058acabc00980c1ed7a00739e5691226f",
       "size_bytes": 1280814,
       "format": "headerless",
@@ -735,7 +735,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260512141857_f1_0_14_19_05_965.txt",
       "label": "B·near·Rx0",
-      "group": "data/f1",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "sha256": "36db22359f0bc902022ec26a07a1a6cb2ed941f66f75729c42d01bf56c4d273c",
       "size_bytes": 1268333,
       "format": "headerless",
@@ -812,7 +812,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260512141857_f1_1_14_19_14_570.txt",
       "label": "B·near·Rx1",
-      "group": "data/f1",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "sha256": "4fb120427111cddaf220433bf85491a700633ca28e4b41d5ea20ee01707960ab",
       "size_bytes": 1294496,
       "format": "headerless",
@@ -889,7 +889,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260512141857_f1_2_14_19_23_170.txt",
       "label": "B·near·Rx2",
-      "group": "data/f1",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "sha256": "05f3a38d9297f35c7972d84d8f9e300b269457b3e6cd00e5f51d3172ac6c306e",
       "size_bytes": 1294254,
       "format": "headerless",
@@ -966,7 +966,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260512141857_f1_3_14_19_31_788.txt",
       "label": "B·near·Rx3",
-      "group": "data/f1",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "sha256": "134e89fb95ae8e2d7955163e888040ecf59fc3895c21841debc07fb51127e7bb",
       "size_bytes": 1294726,
       "format": "headerless",
@@ -1043,7 +1043,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260527115033_Pf0_Rx0.txt",
       "label": "B·far·Rx0",
-      "group": "data/f0",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f0",
       "sha256": "c8c112139a1d72f9055f115204e4f97aae681db2172a2feee5cc76f2f284cb5f",
       "size_bytes": 1239576,
       "format": "header3",
@@ -1124,7 +1124,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260527115041_Pf0_Rx1.txt",
       "label": "B·far·Rx1",
-      "group": "data/f0",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f0",
       "sha256": "ea15547d808e671474f5e8a94060f1c06627315d568c6f656c20e272ea9c7202",
       "size_bytes": 1263799,
       "format": "header3",
@@ -1205,7 +1205,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260527115050_Pf0_Rx2.txt",
       "label": "B·far·Rx2",
-      "group": "data/f0",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f0",
       "sha256": "7a5ad0f39cb829dd2a3a4289eddf65f682a69e0ad07631bd4e32648bc88a65bf",
       "size_bytes": 1247552,
       "format": "header3",
@@ -1286,7 +1286,7 @@
     {
       "path": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260527115059_Pf0_Rx3.txt",
       "label": "B·far·Rx3",
-      "group": "data/f0",
+      "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f0",
       "sha256": "e30d54914accca261d9327291a2c4c92fac026018392d4e2d40124734662add2",
       "size_bytes": 1237074,
       "format": "header3",
@@ -1369,12 +1369,12 @@
     {
       "rule_id": "BAT-01",
       "status": "warn",
-      "message": "重复批次：sha256=05f3a38d9297… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx2 @ 示例adc数据和结果/f1; B·near·Rx2 @ data/f1",
+      "message": "重复批次：sha256=05f3a38d9297… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx2 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx2 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "details": {
         "sha256": "05f3a38d9297f35c7972d84d8f9e300b269457b3e6cd00e5f51d3172ac6c306e",
         "groups": [
-          "data/f1",
-          "示例adc数据和结果/f1"
+          "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
+          "ADC数据采集/示例adc数据和结果/f1"
         ],
         "files": [
           "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_2_14_19_23_170.txt",
@@ -1385,12 +1385,12 @@
     {
       "rule_id": "BAT-01",
       "status": "warn",
-      "message": "重复批次：sha256=134e89fb95ae… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx3 @ 示例adc数据和结果/f1; B·near·Rx3 @ data/f1",
+      "message": "重复批次：sha256=134e89fb95ae… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx3 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx3 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "details": {
         "sha256": "134e89fb95ae8e2d7955163e888040ecf59fc3895c21841debc07fb51127e7bb",
         "groups": [
-          "data/f1",
-          "示例adc数据和结果/f1"
+          "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
+          "ADC数据采集/示例adc数据和结果/f1"
         ],
         "files": [
           "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_3_14_19_31_788.txt",
@@ -1401,12 +1401,12 @@
     {
       "rule_id": "BAT-01",
       "status": "warn",
-      "message": "重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx0 @ 示例adc数据和结果/f1; B·near·Rx0 @ data/f1",
+      "message": "重复批次：sha256=36db22359f0b… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx0 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx0 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "details": {
         "sha256": "36db22359f0bc902022ec26a07a1a6cb2ed941f66f75729c42d01bf56c4d273c",
         "groups": [
-          "data/f1",
-          "示例adc数据和结果/f1"
+          "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
+          "ADC数据采集/示例adc数据和结果/f1"
         ],
         "files": [
           "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_0_14_19_05_965.txt",
@@ -1417,12 +1417,12 @@
     {
       "rule_id": "BAT-01",
       "status": "warn",
-      "message": "重复批次：sha256=4fb120427111… 的同一内容出现在 2 个批次 (data/f1, 示例adc数据和结果/f1)：A·near·Rx1 @ 示例adc数据和结果/f1; B·near·Rx1 @ data/f1",
+      "message": "重复批次：sha256=4fb120427111… 的同一内容出现在 2 个批次 (ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1, ADC数据采集/示例adc数据和结果/f1)：A·near·Rx1 @ ADC数据采集/示例adc数据和结果/f1; B·near·Rx1 @ ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
       "details": {
         "sha256": "4fb120427111cddaf220433bf85491a700633ca28e4b41d5ea20ee01707960ab",
         "groups": [
-          "data/f1",
-          "示例adc数据和结果/f1"
+          "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
+          "ADC数据采集/示例adc数据和结果/f1"
         ],
         "files": [
           "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_1_14_19_14_570.txt",
@@ -1433,9 +1433,9 @@
     {
       "rule_id": "BAT-02",
       "status": "pass",
-      "message": "批次 data/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
+      "message": "批次 ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
       "details": {
-        "group": "data/f0",
+        "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f0",
         "members": [
           "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260527115033_Pf0_Rx0.txt",
           "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260527115041_Pf0_Rx1.txt",
@@ -1455,9 +1455,9 @@
     {
       "rule_id": "BAT-02",
       "status": "pass",
-      "message": "批次 data/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
+      "message": "批次 ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
       "details": {
-        "group": "data/f1",
+        "group": "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/f1",
         "members": [
           "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260512141857_f1_0_14_19_05_965.txt",
           "ADC数据采集/matlab_signal_processing_platform_231023_for_txt_A100/data/adc_test_20260512141857_f1_1_14_19_14_570.txt",
@@ -1477,9 +1477,9 @@
     {
       "rule_id": "BAT-02",
       "status": "pass",
-      "message": "批次 示例adc数据和结果/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
+      "message": "批次 ADC数据采集/示例adc数据和结果/f0: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
       "details": {
-        "group": "示例adc数据和结果/f0",
+        "group": "ADC数据采集/示例adc数据和结果/f0",
         "members": [
           "ADC数据采集/示例adc数据和结果/adc_远波_20260512135827_f0_0_13_58_36_748.txt",
           "ADC数据采集/示例adc数据和结果/adc_远波_20260512135827_f0_1_13_58_45_367.txt",
@@ -1499,9 +1499,9 @@
     {
       "rule_id": "BAT-02",
       "status": "pass",
-      "message": "批次 示例adc数据和结果/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
+      "message": "批次 ADC数据采集/示例adc数据和结果/f1: 4 个文件。Rx 序号完整 (0..3) 且内容互不相同",
       "details": {
-        "group": "示例adc数据和结果/f1",
+        "group": "ADC数据采集/示例adc数据和结果/f1",
         "members": [
           "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_0_14_19_05_965.txt",
           "ADC数据采集/示例adc数据和结果/adc_近波_20260512141857_f1_1_14_19_14_570.txt",
